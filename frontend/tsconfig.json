@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "jsx": "react",
+    "sourceMap": true,
+    "lib": [
+      "dom",
+      "es6"
+    ],
+    "experimentalDecorators": true
+  },
+  "include": [
+    "./src/**/*",
+    "./scripts/**/*"
+  ]
+}

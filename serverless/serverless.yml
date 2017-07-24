@@ -1,0 +1,39 @@
+service: chromeless-homepage
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: eu-west-1
+  deploymentBucket: serverless-deployments-${env:AWS_REGION}-${env:AWS_ACCOUNT_ID}
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action: ["lambda:InvokeFunction"]
+      Resource:
+        - "arn:aws:lambda:${env:AWS_REGION}:${env:AWS_ACCOUNT_ID}:function:${env:CHROMELESS_LAMBDA_FUNCTION_NAME}"
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+package:
+  excludeDevDependencies: false
+
+functions:
+  run:
+    handler: handler.default
+    memorySize: 128
+    timeout: 30
+    events:
+      - http:
+          path: /
+          method: any
+    environment:
+      CHROMELESS_LAMBDA_FUNCTION_NAME: ${env:CHROMELESS_LAMBDA_FUNCTION_NAME}
+      #DEBUG: chromeless
+
+resources:
+  Resources:
+
+    RunLogGroup:
+      Properties:
+        RetentionInDays: 7
