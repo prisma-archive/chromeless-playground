@@ -45,8 +45,8 @@ export default class Output extends React.Component<Props, State> {
   private request = async () => {
     this.setState({loading: true})
 
-    // const endpoint = 'https://9r6omxusb0.execute-api.eu-west-1.amazonaws.com/dev'
-    const endpoint = 'http://localhost:3000'
+    const endpoint = 'https://9r6omxusb0.execute-api.eu-west-1.amazonaws.com/dev'
+    //const endpoint = 'http://localhost:3000'
     const response = await fetch(endpoint, {
       method: 'POST',
       body: JSON.stringify({b64Code: btoa(this.props.compiledCode)})
