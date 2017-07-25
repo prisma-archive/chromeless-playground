@@ -1,7 +1,7 @@
 import { observable, action, computed } from 'mobx';
-import * as ps from './play/projectService';
+import * as ps from './codemirror/projectService';
 import { debounce } from './utils';
-import * as srcLoader from './play/srcLoader';
+import * as srcLoader from './codemirror/srcLoader';
 
 class State {
   /**
@@ -10,6 +10,8 @@ class State {
   readonly editorFilePath = 'editor.tsx';
 
   @observable code: string;
+  @observable executionResult: string[] = [];
+  @observable executing: boolean = false;
 
   constructor() {
     this.reset();
@@ -52,7 +54,26 @@ class State {
     ps.removeFile(tmpFilePath);
     this.pendingUpdates = false;
     srcLoader.setSource(this.code);
-  }, 1000);
+  }, 100);
+
+  @action executeCode = async () => {
+    this.executing = true
+    this.executionResult = []
+    const endpoint = 'https://9r6omxusb0.execute-api.eu-west-1.amazonaws.com/dev'
+    // const endpoint = 'http://localhost:3000'
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        body: JSON.stringify({b64Code: btoa(this.output)})
+      })
+
+      this.executionResult = await response.json()
+    } catch (e) {
+      this.executionResult = [e.toString()]
+    }
+
+    this.executing = false
+  }
 }
 
 function randomString(): string {

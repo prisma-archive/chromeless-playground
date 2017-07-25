@@ -1,7 +1,13 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './src/app.tsx',
+  entry: {
+    app: [
+      'babel-polyfill',
+      './src/index.tsx',
+      'graphcool-styles/dist/styles.css',
+    ],
+  },
   output: {
     path: __dirname + '/dist',
     filename: '[name].[hash].js',
@@ -13,9 +19,10 @@ module.exports = {
   module: {
     rules: [
       // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
-      { test: /\.tsx?$/, loader: 'ts-loader' },
-      { test: /\.json?$/, loader: 'json-loader' },
-      { test: /\.css/, loader: 'raw-loader' },
+      {test: /\.tsx?$/, loader: 'ts-loader'},
+      {test: /\.json?$/, loader: 'json-loader'},
+      {test: /\.css/, loader: 'style-loader!css-loader'},
+      {test: /icons\/.*\.svg$/, loader: 'raw-loader!svgo-loader'},
     ]
   },
   plugins: [

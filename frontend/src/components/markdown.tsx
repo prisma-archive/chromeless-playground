@@ -2,9 +2,8 @@ import * as React from "react";
 import * as marked from "marked";
 import { style, cssRaw, classes } from 'typestyle';
 import * as csstips from 'csstips';
-import { colors, spacing, fontSizes } from './styles';
 import * as escape from 'escape-html';
-import { getPlaygroundLink } from '../play/srcLoader';
+import { getPlaygroundLink } from '../codemirror/srcLoader';
 
 /** 
  * Using codemirror for syntax highlighting
@@ -32,6 +31,21 @@ function highlightCodeWithMode(args: { code: string, mode: string }) {
     }
   );
   return `<div class="cm-s-default" style="display: inline-block">${collection.join('')}</div>`
+}
+
+const colors = {
+  white: 'white',
+
+  header: 'black',
+  headerHover: '#444',
+
+  text: '#555'
+}
+const fontSizes = {
+  buttonText: '15px',
+}
+const spacing = {
+  lineHeight: '24px'
 }
 
 namespace PlayButtonStyles {
@@ -194,7 +208,7 @@ export function toHtml(markdown: string) {
   /** Custom rendering */
   const renderer = new marked.Renderer();
 
-  /** 
+  /**
    * Target blank external links
    * https://github.com/chjj/marked/pull/451
    **/
@@ -228,7 +242,7 @@ export function toHtml(markdown: string) {
           return highlightCodeWithMode({ code, mode: 'css' })
         }
         if (lang === 'play') {
-          // Remove any imports 
+          // Remove any imports
           const codeForPlayground = code.split(/\n|\r\n/g).filter(l => !l.startsWith('import')).join('\n').trim();
 
           /** Makes it easier to write :) */

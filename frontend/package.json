@@ -19,16 +19,19 @@
   },
   "homepage": "https://github.com/typestyle/typestyle.github.io#readme",
   "dependencies": {
+    "@types/classnames": "^2.2.0",
     "@types/codemirror": "^0.0.42",
     "@types/escape-html": "0.0.19",
     "@types/history": "^4.6.0",
+    "@types/is-url": "^1.2.28",
     "@types/marked": "0.0.28",
-    "@types/node": "^8.0.14",
-    "@types/react": "^15.0.38",
+    "@types/node": "^8.0.16",
+    "@types/react": "^15.0.39",
     "@types/react-dom": "^15.5.1",
+    "@types/webfontloader": "^1.6.28",
     "babel-polyfill": "^6.9.1",
     "byots": "^2.1.0-dev.20161101.22.10",
-    "chromeless": "^0.1.40",
+    "classnames": "^2.2.5",
     "codemirror": "^5.20.2",
     "css-to-typestyle": "^0.0.5",
     "csstips": "^0.2.2",
@@ -36,7 +39,9 @@
     "escape-html": "^1.0.3",
     "fuzzaldrin": "^2.1.0",
     "gh-pages": "^1.0.0",
-    "json-loader": "^0.5.4",
+    "graphcool-styles": "^0.1.31",
+    "is-url": "^1.2.2",
+    "json-loader": "^0.5.7",
     "marked": "^0.3.6",
     "mobx": "^2.5.1",
     "mobx-react": "^3.5.6",
@@ -44,14 +49,20 @@
     "raw-loader": "^0.5.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "styled-components": "^2.1.1",
     "ts-loader": "^2.3.1",
-    "ts-node": "^3.2.1",
+    "ts-node": "^3.3.0",
     "typescript": "^2.4.2",
     "typestyle": "^1.3.7",
+    "webfontloader": "^1.6.28",
     "webpack": "^3.3.0",
-    "webpack-dev-server": "^2.6.0"
+    "webpack-dev-server": "^2.6.1"
   },
   "devDependencies": {
-    "html-webpack-plugin": "^2.29.0"
+    "css-loader": "^0.28.4",
+    "html-webpack-plugin": "^2.29.0",
+    "style-loader": "^0.18.2",
+    "svgo": "^0.7.2",
+    "svgo-loader": "^1.2.1"
   }
 }

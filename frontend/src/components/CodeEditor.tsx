@@ -4,9 +4,9 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { style, classes, cssRaw } from "typestyle";
 import * as ts from 'byots';
-import * as ps from '../projectService';
+import * as ps from '../codemirror/projectService';
 import escape = require("escape-html");
-import { toHtml } from '../../components/markdown';
+import { toHtml } from './markdown';
 import * as csx from 'csstips';
 
 const headerHeight = '78px';
@@ -28,8 +28,9 @@ cssRaw(`
 
 /** Bigger, better font */
 .CodeMirror {
+  height: 100%;
   font-size: 16px;
-  font-family: consolas, menlo, monospace; 
+  font-family: 'Source Code Pro', consolas, menlo, monospace; 
 }
 
 /* Make code mirror selections a bit more popping */
@@ -93,7 +94,7 @@ require('codemirror/keymap/sublime');
 // comments (single / multiline)
 require('codemirror/addon/comment/comment');
 // Highlight active line
-require('codemirror/addon/selection/active-line');
+// require('codemirror/addon/selection/active-line');
 // Highlight matching brackets
 require('codemirror/addon/edit/matchbrackets');
 // Auto close brackets and strings
@@ -107,8 +108,8 @@ const mode = 'jsx';
 require('codemirror/mode/javascript/javascript');
 
 /** Our addons */
-import autocomplete = require('./addons/autocomplete/autocomplete');
-import textHover = require('./addons/textHover');
+import autocomplete = require('../codemirror/codeEditor/addons/autocomplete/autocomplete');
+import textHover = require('../codemirror/codeEditor/addons/textHover');
 
 const ensureImport = textHover;
 
@@ -200,7 +201,7 @@ export class CodeEditor extends React.Component<Props, {}> {
       gutters: [],
 
       // Active line addon
-      styleActiveLine: true,
+      // styleActiveLine: true,
 
       // Match bracket addon
       matchBrackets: true,
@@ -334,9 +335,7 @@ export class CodeEditor extends React.Component<Props, {}> {
   render() {
     const props = {autoComplete: false}
     return (
-      <div className={classes('ReactCodeMirror', style(csx.vertical, csx.flex, {position: 'relative'}))}>
-        <textarea ref="textarea" {...props} />
-      </div>
+      <textarea ref="textarea" {...props} />
     );
   }
 

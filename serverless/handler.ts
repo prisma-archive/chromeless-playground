@@ -2,7 +2,11 @@ import Chromeless from 'chromeless'
 import {callbackRuntime} from 'lambda-helpers'
 import fetch from 'node-fetch'
 import * as FormData from 'form-data'
+import { promisifyAll } from 'bluebird'
 import 'source-map-support/register'
+
+const redis = require('redis')
+const redisAsync: any = promisifyAll(redis)
 
 global['Chromeless'] = Chromeless
 
@@ -24,6 +28,35 @@ export default callbackRuntime(async event => {
       },
     }
   }
+
+  const redisClient = redisAsync.createClient({
+    host: process.env.REDIS_HOST,
+    port: process.env.REDIS_PORT,
+    password: process.env.REDIS_PASSWORD,
+  })
+
+  const dateStr = new Date().getFullYear() + '-' + new Date().getMonth() + 1 + '-' + new Date().getDate()
+  const ip = event.requestContext.identity.sourceIp
+  const redisKey = `chromeless-playground-request-count-${ip}-${dateStr}`
+
+  await redisClient.incrAsync(redisKey)
+  await redisClient.expireAsync(redisKey, 1209600) // expire after 2 weeks (random number really - at least 1 day though)
+
+  const requestCount = parseInt(await redisClient.getAsync(redisKey), 10)
+
+  await redisClient.quitAsync()
+
+  if (requestCount > 5) {
+    callback(null, {
+      statusCode: 429,
+      body: JSON.stringify({
+        message: 'Uh oh. You\'ve made too many requests. Please setup your own Chromeless function 🤓',
+      }),
+      headers: cors,
+    })
+    return
+  }
+
 
   const {b64Code} = JSON.parse(event.body) as Payload
 

@@ -28,7 +28,11 @@ functions:
           path: /
           method: any
     environment:
-      CHROMELESS_LAMBDA_FUNCTION_NAME: ${env:CHROMELESS_LAMBDA_FUNCTION_NAME}
+      CHROMELESS_ENDPOINT_URL: ${env:CHROMELESS_ENDPOINT_URL}
+      CHROMELESS_ENDPOINT_KEY: ${env:CHROMELESS_ENDPOINT_API_KEY}
+      REDIS_HOST: ${env:REDIS_HOST}
+      REDIS_PORT: ${env:REDIS_PORT}
+      REDIS_PASSWORD: ${env:REDIS_PASSWORD}
       #DEBUG: chromeless
 
 resources:

@@ -1,10 +1,13 @@
 {
   "dependencies": {
+    "@types/bluebird": "^3.5.8",
     "@types/node-fetch": "^1.6.7",
-    "chromeless": "^0.2.1",
+    "bluebird": "^3.5.0",
+    "chromeless": "^0.3.0",
     "form-data": "^2.2.0",
     "lambda-helpers": "^0.2.1",
     "node-fetch": "^1.7.1",
+    "redis": "^2.7.1",
     "source-map-support": "^0.4.15"
   },
   "devDependencies": {
