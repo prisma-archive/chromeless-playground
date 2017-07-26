@@ -47,7 +47,7 @@ export default class Header extends React.Component<Props, State> {
               style={{appearance: 'none', WebkitAppearance: 'none'}}
             >
               {examples.map(example => (
-                <option key={example.title} value={example.title}>{example.title}</option>
+                <option className={$p.black} key={example.title} value={example.title}>{example.title}</option>
               ))}
             </select>
           </div>
