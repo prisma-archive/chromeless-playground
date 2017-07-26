@@ -15,15 +15,6 @@ class State {
 
   constructor() {
     this.reset();
-
-    /**
-     * Debounced because hash can chang as much as it wants while the user is editing code
-     */
-    window.onhashchange = () => {
-      if (srcLoader.getSource() !== this.code) {
-        this.reset();
-      }
-    };
   }
 
   @action reset = () => {

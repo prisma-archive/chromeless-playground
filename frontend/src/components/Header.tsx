@@ -39,7 +39,7 @@ export default class Header extends React.Component<Props, State> {
             </Github>
           </div>
           <div className={cx($p.f14, $p.flex, $p.justifyEnd, $p.itemsCenter)}>
-            <span className={cx($p.o50, $p.fw3)}>Select example:</span>
+            <span className={cx($p.o50, $p.fw3, $p.pr6)}>Select example:</span>
             <select
               className={cx($p.bgNone, $p.white, $p.bNone, $p.outline0, $p.fw5, $p.pointer)}
               onChange={(e: any) => this.onSelectExample(e.target.value)}
