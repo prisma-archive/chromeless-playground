@@ -58,7 +58,13 @@ class State {
         body: JSON.stringify({b64Code: btoa(this.output)})
       })
 
-      this.executionResult = await response.json()
+      const result = await response.json()
+
+      if (Array.isArray(result)) {
+        this.executionResult = result
+      } else {
+        this.executionResult = [JSON.stringify(result)]
+      }
     } catch (e) {
       this.executionResult = [e.toString()]
     }
