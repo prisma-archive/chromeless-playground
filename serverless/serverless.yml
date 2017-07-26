@@ -5,11 +5,6 @@ provider:
   runtime: nodejs6.10
   region: eu-west-1
   deploymentBucket: serverless-deployments-${env:AWS_REGION}-${env:AWS_ACCOUNT_ID}
-  iamRoleStatements:
-    - Effect: "Allow"
-      Action: ["lambda:InvokeFunction"]
-      Resource:
-        - "arn:aws:lambda:${env:AWS_REGION}:${env:AWS_ACCOUNT_ID}:function:${env:CHROMELESS_LAMBDA_FUNCTION_NAME}"
 
 plugins:
   - serverless-plugin-typescript
@@ -29,7 +24,7 @@ functions:
           method: any
     environment:
       CHROMELESS_ENDPOINT_URL: ${env:CHROMELESS_ENDPOINT_URL}
-      CHROMELESS_ENDPOINT_KEY: ${env:CHROMELESS_ENDPOINT_API_KEY}
+      CHROMELESS_ENDPOINT_API_KEY: ${env:CHROMELESS_ENDPOINT_API_KEY}
       REDIS_HOST: ${env:REDIS_HOST}
       REDIS_PORT: ${env:REDIS_PORT}
       REDIS_PASSWORD: ${env:REDIS_PASSWORD}

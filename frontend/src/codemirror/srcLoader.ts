@@ -1,7 +1,10 @@
+import examples from '../examples'
+
 export const getSource = () => {
   const afterHash = window.location.hash.substr(1);
-  if (!afterHash) return ''; 
-  if (!afterHash.startsWith('src=')) return '';
+  const defaultExample = examples[0].code;
+  if (!afterHash) return defaultExample;
+  if (!afterHash.startsWith('src=')) return defaultExample;
   return decodeURI(afterHash.substr('src='.length));
 };
 export const setSource = (source: string) => {

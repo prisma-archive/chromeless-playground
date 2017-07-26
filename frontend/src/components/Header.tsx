@@ -44,6 +44,7 @@ export default class Header extends React.Component<Props, State> {
               className={cx($p.bgNone, $p.white, $p.bNone, $p.outline0, $p.fw5, $p.pointer)}
               onChange={(e: any) => this.onSelectExample(e.target.value)}
               value={this.state.selectedTitle}
+              style={{appearance: 'none', WebkitAppearance: 'none'}}
             >
               {examples.map(example => (
                 <option key={example.title} value={example.title}>{example.title}</option>

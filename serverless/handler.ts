@@ -46,15 +46,14 @@ export default callbackRuntime(async event => {
 
   await redisClient.quitAsync()
 
-  if (requestCount > 5) {
-    callback(null, {
+  if (requestCount > 50) {
+    return {
       statusCode: 429,
       body: JSON.stringify({
         message: 'Uh oh. You\'ve made too many requests. Please setup your own Chromeless function 🤓',
       }),
       headers: cors,
-    })
-    return
+    }
   }
 
 

@@ -76,12 +76,8 @@ declare class Chromeless<T extends any> {
 }
 
 declare interface RemoteOptions {
-  functionName?: string;
-  region?: string;
-  credentials?: {
-    accessKeyId: string;
-    secretAccessKey: string;
-  };
+  endpointUrl: string;
+  apiKey?: string;
 }
 
 declare interface CDPOptions {

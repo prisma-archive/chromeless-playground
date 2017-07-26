@@ -4,9 +4,9 @@
   "description": "Website for TypeStyle",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist; webpack -p",
-    "start": "webpack-dev-server --host 0.0.0.0 --disable-host-check --hot --inline --no-info --content-base ./public --config ./webpack.config.js",
-    "deploy": "npm run build && netlify deploy -s chromeless-homepage -p dist"
+    "build": "rm -rf dist; webpack -p && cp -r public/* dist",
+    "start": "webpack-dev-server --host 0.0.0.0 --disable-host-check --hot --inline --no-info --content-base ./public",
+    "deploy": "npm run build && netlify deploy -s chromeless -p dist"
   },
   "repository": {
     "type": "git",

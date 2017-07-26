@@ -12,7 +12,7 @@ import { ExecuteButton } from './RunButton'
 export default class App extends React.Component<{}, {}> {
   render() {
     return (
-      <div className={cx($p.h100, $p.w100, $p.flex, $p.flexColumn)}>
+      <div className={cx($p.h100, $p.w100, $p.flex, $p.flexColumn)} style={{minWidth: 1100}}>
         <Header selectExample={state.setCode}/>
         <div className={cx($p.flex, $p.h100)}>
           <div className={cx($p.h100, $p.w50, $p.pl10, $p.pr25, $p.pv25)} style={{ background: '#272822'}}>

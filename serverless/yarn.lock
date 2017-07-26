@@ -293,9 +293,9 @@ chrome-remote-interface@^0.24.2:
     commander "2.1.x"
     ws "2.0.x"
 
-chromeless@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/chromeless/-/chromeless-0.3.0.tgz#dabe754f5cc6fd2d717a7972ecc080f0935d4e85"
+chromeless@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/chromeless/-/chromeless-0.3.2.tgz#dc14d8884c9f1a02bf099c5baa4c73f40add66bf"
   dependencies:
     aws-sdk "^2.88.0"
     bluebird "^3.5.0"
@@ -1137,9 +1137,9 @@ serverless-offline@^3.15.1:
     lodash "^4.17.4"
     velocityjs "^0.9.3"
 
-serverless-plugin-typescript@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/serverless-plugin-typescript/-/serverless-plugin-typescript-0.5.0.tgz#4a5c4cd933c18262444fb6deb64901032eab16a3"
+serverless-plugin-typescript@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/serverless-plugin-typescript/-/serverless-plugin-typescript-1.0.0.tgz#b1aca64b8be2e3c341380d17bbc0beeeb4044605"
   dependencies:
     fs-p "2.0.0"
     globby "^6.1.0"
