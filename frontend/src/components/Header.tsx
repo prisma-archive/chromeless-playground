@@ -28,7 +28,7 @@ export default class Header extends React.Component<Props, State> {
 
   render() {
     return (
-      <div className={cx($p.w100, $p.flex)}>
+      <div className={cx($p.w100, $p.flex)} style={{flex: '0 0 auto'}}>
         <div className={cx($p.w50, $p.flex, $p.pa25, $p.white, $p.justifyBetween)} style={{background: '#151513'}}>
           <div className={cx($p.f20, $p.flex, $p.itemsCenter)}>
             <span className={cx($p.fw5, $p.pr6)}>Chromeless</span>
