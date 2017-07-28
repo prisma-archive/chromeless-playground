@@ -60,22 +60,7 @@ aws-lambda@^0.1.2:
     commander "^2.5.0"
     dotenv "^0.4.0"
 
-aws-sdk@^*, aws-sdk@^2.58.0:
-  version "2.88.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.88.0.tgz#1bb0bc3d8c8dec62dd020c8f2056b2df7a5ed696"
-  dependencies:
-    buffer "4.9.1"
-    crypto-browserify "1.0.9"
-    events "^1.1.1"
-    jmespath "0.15.0"
-    querystring "0.2.0"
-    sax "1.2.1"
-    url "0.10.3"
-    uuid "3.0.1"
-    xml2js "0.4.17"
-    xmlbuilder "4.2.1"
-
-aws-sdk@^2.90.0:
+aws-sdk@^*, aws-sdk@^2.58.0, aws-sdk@^2.90.0:
   version "2.90.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.90.0.tgz#7dfe5c5ce2f2b7d33ef426692586f7d539919ea0"
   dependencies:
@@ -1137,9 +1122,9 @@ sax@1.2.1, sax@>=0.6.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.1.tgz#7b8e656190b228e81a66aea748480d828cd2d37a"
 
-serverless-offline@^3.15.1:
-  version "3.15.1"
-  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-3.15.1.tgz#9fc90066c1d5b3121a04b00963356d2d5be98135"
+serverless-offline@^3.15.3:
+  version "3.15.3"
+  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-3.15.3.tgz#3ce94632ab557e036c0068fa1cd3972413d6d735"
   dependencies:
     babel-register "^6.18.0"
     boom "^4.2.0"
