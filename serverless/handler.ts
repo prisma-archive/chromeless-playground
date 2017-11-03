@@ -2,6 +2,7 @@ import Chromeless from 'chromeless'
 import {callbackRuntime} from 'lambda-helpers'
 import fetch from 'node-fetch'
 import * as FormData from 'form-data'
+import * as _ from 'lodash'
 import { promisifyAll } from 'bluebird'
 import 'source-map-support/register'
 
@@ -70,6 +71,10 @@ export default callbackRuntime(async event => {
   }
 
   try {
+    process.env = _.pick(process.env, [
+      'CHROMELESS_ENDPOINT_API_KEY',
+      'CHROMELESS_ENDPOINT_URL',
+    ])
     await code()
   } catch (e) {
     console.error(e)
